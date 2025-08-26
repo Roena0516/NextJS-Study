@@ -18,6 +18,8 @@ export async function POST(request) {
       // body.content ?? "": 폼에서 content 값이 없으면 빈 문자열로 대체
       { $set: { title: body.title, content: body.content ?? "" } }
     );
+
+    return NextResponse.redirect(new URL("/list", request.url), 302);
   } catch (error) {
     //에러 처리
   }
