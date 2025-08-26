@@ -14,7 +14,7 @@ export default async function List() {
         <div className="list-bg">
           {result.map((a, i) => (
             <div className="list-item" key={i}>
-              <Link href={"/detail/" + a.postId}>
+              <Link href={"/detail/" + a._id}>
                 <h4>{a.title}</h4>
               </Link>
               <p>{a.content}</p>
