@@ -8,7 +8,7 @@ export default async function Edit(props) {
   const db = client.db("board");
   let result = await db
     .collection("post")
-    .findOne({ _id: ObjectId(props.params.id) });
+    .findOne({ _id: new ObjectId(props.params.id) });
 
   return (
     <html>
@@ -21,6 +21,7 @@ export default async function Edit(props) {
             name="_id"
             defaultValue={result._id.toString()}
           />
+          <button type="submit">전송</button>
         </form>
       </body>
     </html>
