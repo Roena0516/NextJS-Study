@@ -19,7 +19,7 @@ export default async function List() {
                 <h4>{a.title}</h4>
               </Link>
               <p>{a.content}</p>
-              <ListItem />
+              {/* <ListItem /> */}
             </div>
           ))}
         </div>

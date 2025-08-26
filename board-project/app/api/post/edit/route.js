@@ -8,7 +8,7 @@ export async function POST(request) {
   try {
     // 폼 데이터 파싱
     const formData = await request.formData();
-    body = Object.fromEntries(formData.entries());
+    const body = Object.fromEntries(formData.entries());
     // 기본 검증(body._id, body.title)
     // DB 업데이트
     let client = await connectDB;

@@ -8,7 +8,7 @@ export async function POST(request) {
     // formData를 비동기로 파싱 (POST 요청의 form 데이터 받기)
     const formData = await request.formData();
     // formData의 entries를 객체로 변환 (key-value 쌍으로 변환)
-    body = Object.fromEntries(formData.entries());
+    const body = Object.fromEntries(formData.entries());
     //}
 
     //body로 전송된 데이터를 DB에 저장
