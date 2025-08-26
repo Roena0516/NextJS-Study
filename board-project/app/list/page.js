@@ -1,6 +1,7 @@
 /* app/list/page.js */
 import { connectDB } from "@/util/database";
 import Link from "next/link";
+import ListItem from "./ListItem";
 
 export default async function List() {
   //board DB연결후 post 테이블조회하여 result에 저장
@@ -18,6 +19,7 @@ export default async function List() {
                 <h4>{a.title}</h4>
               </Link>
               <p>{a.content}</p>
+              <ListItem />
             </div>
           ))}
         </div>
