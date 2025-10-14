@@ -1,4 +1,5 @@
 import { getServerSession } from "next-auth";
+import QueryProvider from "@/QueryProvider";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import "./globals.css";
 import LoginBtn from "./LoginBtn.js"; //1. import
@@ -18,23 +19,25 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <NextAuthProvider session={session}>
-          <div className="navbar">
-            <Link href="/" className="logo">
-              BSSM board
-            </Link>
-            <Link href="/list">글목록</Link>
-            <Link href="/write">글작성</Link>
-            {session ? (
-              <span style={{ color: "black" }}>
-                {session.user.name} <LogoutBtn />{" "}
-              </span>
-            ) : (
-              <LoginBtn />
-            )}
-          </div>
-          {children}
-        </NextAuthProvider>
+        <QueryProvider>
+          <NextAuthProvider session={session}>
+            <div className="navbar">
+              <Link href="/" className="logo">
+                BSSM board
+              </Link>
+              <Link href="/list">글목록</Link>
+              <Link href="/write">글작성</Link>
+              {session ? (
+                <span style={{ color: "black" }}>
+                  {session.user.name} <LogoutBtn />{" "}
+                </span>
+              ) : (
+                <LoginBtn />
+              )}
+            </div>
+            {children}
+          </NextAuthProvider>
+        </QueryProvider>
       </body>
     </html>
   );
