@@ -3,6 +3,7 @@
 import { getServerSession } from "next-auth";
 import LoginBtn from "./loginBtn.js"; //1. import
 import LogoutBtn from "./logoutBtn.js";
+import ResisterBtn from "./resister.js";
 import Link from "next/link.js";
 import { authOptions } from "./api/auth/[...nextauth]/route.js";
 
@@ -25,7 +26,14 @@ export default async function RootLayout({ children }) {
             BSSM board
           </Link>
           <Link href="/list">글목록</Link>
-          {session ? <LogoutBtn /> : <LoginBtn />}
+          {session ? (
+            <LogoutBtn />
+          ) : (
+            <>
+              <ResisterBtn />
+              <LoginBtn />
+            </>
+          )}
           {session ? session.user.name : ""}
           <img src={session ? session.user.image : ""}></img>
         </div>

@@ -1,6 +1,6 @@
 /*  app/api/auth/[...nextauth]/route.js. */
-import { connectDB } from "../../../util/database";
-//import { MongoDBAdapter } from "@next-auth/mongodb-adapter"; //2-1. 몽고DB어댑터
+import { connectDB } from "@/util/database";
+//import { MongoDBAdapter } from "@next-auth/mongodb-adapter"; //2-1. 몽고DB 어댑터
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github"; //1-1. 깃헙 Next-Auth로그인 기능
 import CredentialsProvider from "next-auth/providers/credentials"; //3-0.아이디/비번 + JWT로그인 폼 자동생성
